@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -21,6 +22,12 @@ class LoginController extends Controller
             'email' => 'required|email:filter'
         ]);
 
+        $user = DB::select('select * from users where email = ?', [$request->input('email')]);
+
+        $role = DB::select('select * from users_roles where user_id = ?', [array_values($user)[0] -> id]);
+        
+        $role_id = array_values($role)[0] -> role_id;
+
         if(Auth::attempt(
             [
                 'email' => $request -> input('email'),
@@ -28,7 +35,12 @@ class LoginController extends Controller
             ],
             $request->input('remember')
         )){
-            return redirect() -> route('admin');
+            if($role_id == 1){
+                return redirect() -> route('admin');
+            }
+            else if($role_id == 2){
+                return redirect() -> route('index');
+            }
         }
         Session::flash('error', 'Email or Pass doesnt match');
         return redirect() -> back();

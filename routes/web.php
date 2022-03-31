@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IndexController;
@@ -19,10 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [IndexController::class, 'index']);
+Route::get('/', [IndexController::class, 'index']) -> name('index');
 
 Route::get('user/login', [UserLoginController::class, 'index'])->name('login');
-Route::post('/admin/users/login/store', [LoginController::class, 'store']);
+Route::post('/admin/users/login/store', [UserLoginController::class, 'store']);
 
 Route::group(['prefix'=>'users', 'as'=>'users'], function(){
     Route::get('signup', [SignUpController::class, 'index']);
