@@ -10,18 +10,13 @@ use Illuminate\Support\Str;
 class ProductService{
     public function create($request){
         try {
-            if($this -> getProductById($request -> input() -> id) == null ){
-                Product::create([
-                    'name' => (string) $request->input('name'),
-                    'parent_id' => (int) $request->input('parent_id'),
-                    'description'=> (string) $request->input('description'),
-                    'content' => (string) $request->input('content'),
-                    'active' => (string) $request->input('active'),
-                ]);
-            }else{
-                $this -> putProduct($request);
-            }
-            
+            Product::create([
+                'name' => (string) $request->input('name'),
+                'category_id' => (int) $request->input('parent_id'),
+                'description'=> (string) $request->input('description'),
+                'content' => (string) $request->input('content'),
+                'active' => (string) $request->input('active'),
+            ]);
             Session::flash('success','Succeeded');
         } catch (\Exception $err) {
             Session::flash('error',$err->getMessage());
@@ -43,7 +38,7 @@ class ProductService{
         return Product::where('parent_id', $parentId) -> get();
     }
     public function getAll(){
-        return Product::orderbyDesc('id')->paginate(10);
+        return Product::orderbyDesc('id')-> get();
     }
 
     public function getProductById($id){
@@ -54,6 +49,12 @@ class ProductService{
         return $product;
     }
 
-    
+    public function destroy($request){
+        $_id = $request -> input('id');
+        $product = Product::where('id', $_id) -> first();
+        if($product){
+            return Product::where('id', $_id) -> delete();
+        }
+        return false;
+    }
 }
-?>

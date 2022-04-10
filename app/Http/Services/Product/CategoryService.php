@@ -5,8 +5,10 @@ use App\Models\Category;
 use App\Models\Menu;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use JsonSerializable;
 
 class CategoryService{
     public function create($request){
@@ -24,8 +26,24 @@ class CategoryService{
     }
 
     public function getAllCategories(){
-        return Product::query('select * from categories') -> get();
+        try {
+            return Category::orderbydesc('id')-> get();
+        } catch (\Throwable $th) {
+            return null;
+        }
     }
 
+    public function getNameCateById($cate_id){
+        try {
+            $cate = DB::table('categories')
+                        ->select('namecate')
+                        ->where('id', '=', $cate_id)
+                        ->limit(1)
+                        ->get();
+            return $cate;
+        } catch (\Throwable $th) {
+            return null;
+        }
+    }
 }
 ?>

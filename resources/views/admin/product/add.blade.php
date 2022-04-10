@@ -13,8 +13,8 @@
             <label>Categories</label>
             <select name="parent_id" class="form-control">
                 <option value="0">Category</option>
-                @foreach($menus as $menu)
-                    <option value="{{ $menu -> id}}">{{ $menu -> name}}</option>
+                @foreach($categories as $item)
+                    <option value="{{ $item -> id }}">{{ $item -> namecate}}</option>
                 @endforeach
             </select>
         </div>

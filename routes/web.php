@@ -36,16 +36,18 @@ Route::middleware(['auth'])->group(function () {
 
     Route::group(['prefix'=>'admin', 'as'=>'admin'], function(){
         Route::get('/', [MainController::class, 'index']);
-        Route::group(['prefix'=>'products','as'=>'product'], function(){
+        Route::group(['prefix'=>'product','as'=>'product'], function(){
             Route::get('add', [ProductController::class, 'create']);
             Route::post('add', [ProductController::class, 'store']);
             Route::get('list', [ProductController::class, 'index']);
+            Route::DELETE('destroy', [ProductController::class, 'delete']);
         });
 
         Route::group(['prefix'=>'categories','as'=>'category'], function(){
             Route::get('add', [CategoryController::class, 'create']);
             Route::post('add', [CategoryController::class, 'store']);
             Route::get('list', [CategoryController::class, 'index']);
+            
         });
     });
 });
