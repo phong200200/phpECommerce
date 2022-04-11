@@ -86,27 +86,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="clearfix"></div>
                   </div>
                   @endforeach
+                  {{ $products -> links()}}
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!-- /.container-fluid -->
-    <!-- Control Sidebar -->
-    @yeild('index')
-    <!-- /.control-sidebar -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-      <!-- To the right -->
-      <div class="float-right d-none d-sm-inline">
-        Anything you want
+              </div>
+
+            </div>
+            
+          </div>
+
+        </div>
+
       </div>
-      <!-- Default to the left -->
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+    </div>
+  </div><!-- /.container-fluid -->
+  <!-- Control Sidebar -->
+  <!-- @yeild('index') -->
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
   </div>
   @include('admin.footer')
 </body>
+
 </html>
