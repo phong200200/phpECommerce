@@ -29,6 +29,7 @@ class Product extends Model
         'name',
         'description',
         'active',
+		'linkimg',
         'category_id',
     ];
 

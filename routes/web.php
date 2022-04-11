@@ -41,13 +41,13 @@ Route::middleware(['auth'])->group(function () {
             Route::post('add', [ProductController::class, 'store']);
             Route::get('list', [ProductController::class, 'index']);
             Route::DELETE('destroy', [ProductController::class, 'delete']);
+            Route::get('edit/{product}',[ProductController::class, 'edit']);
         });
 
         Route::group(['prefix'=>'categories','as'=>'category'], function(){
             Route::get('add', [CategoryController::class, 'create']);
             Route::post('add', [CategoryController::class, 'store']);
             Route::get('list', [CategoryController::class, 'index']);
-            
         });
     });
 });

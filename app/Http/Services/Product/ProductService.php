@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class ProductService{
     public function create($request){
@@ -38,11 +39,13 @@ class ProductService{
         return Product::where('parent_id', $parentId) -> get();
     }
     public function getAll(){
-        return Product::orderbyDesc('id')-> get();
+        return DB::table('products')-> orderBy('id') ->paginate(15);
     }
 
     public function getProductById($id){
-        $product = Product::Where('id', $id);
+        $product = DB::table('products')
+                        ->where('id', '=', $id)
+                        ->get();
         if($product == null){
             return null;
         }

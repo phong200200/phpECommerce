@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Product\CategoryService;
 use App\Http\Services\Product\ProductService;
+use App\Models\Product;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\JsonResponse;
@@ -52,6 +53,14 @@ class ProductController extends Controller
         return Response() -> json([
             'error' => false,
             'message' => 'deleted'
+        ]);
+    }
+    public function edit(Product $product){
+        $_productId = $product -> getAttribute('id');
+        return view('admin.product.edit', [
+            'title'=> 'List Product',
+            'product'=> $this-> productservices -> getProductById($product -> getAttribute('id'))[0],
+            'categories'=> $this -> categoryservices -> getAllCategories()
         ]);
     }
 
