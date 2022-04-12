@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-
     protected $productservices;
     protected $categoryservices;
 
@@ -30,6 +29,12 @@ class ProductController extends Controller
         ]);
     }
 
+    public function details(int $productid){
+        return view('index.quickview',[
+            'title' => 'Product Details',
+            'product' => $this -> productservices -> getProductById($productid)[0]
+        ]);
+    }
     public function store(Request $request){
         $result = $this-> productservices->create($request);
         return redirect()->back();

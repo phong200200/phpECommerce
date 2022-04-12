@@ -20,7 +20,7 @@ class IndexController extends Controller
 
     public function index(){
 
-        return view('index.index', [
+        return view('base.index', [
             'title' => 'Index',
             'products' => $this -> productservices -> getAll(),
             'categories' => $this -> categoryservices -> getAllCategories()

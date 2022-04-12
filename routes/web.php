@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Products\CartController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
 use App\Http\Controllers\User\SignUpController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,12 @@ Route::group(['prefix'=>'users', 'as'=>'users'], function(){
     Route::post('signup', [SignUpController::class, 'store']);
 });
 
+Route::group(['prefix'=>'index', 'as'=>'index'], function(){
+    Route::get('details/{product}', [ProductController::class, 'details']);
+    Route::group(['prefix'=>'products', 'as'=>'products'],function(){
+        Route::post('addtocart/{productid}', [CartController::class, 'addtocart']);
+    });
+});
 
 
 Route::middleware(['auth'])->group(function () {
