@@ -118,12 +118,19 @@
                 <div class="nav-depart">
                     <div class="depart-btn">
                         <i class="ti-menu"></i>
-                        <span>{{$thisCate -> name}}</span>
                         <ul class="depart-hover">
-                            @foreach($categories as $cate)
-                                <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
-                            @endforeach
-
+                            @if($thisCate === null)
+                                <span>All Categories</span>
+                                @foreach($categories as $cate)
+                                    <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
+                                @endforeach
+                            @else
+                                <span>{{$thisCate -> name}}</span>
+                                <li><a href="/">All</a></li>
+                                @foreach($categories as $cate)
+                                    <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -165,9 +172,9 @@
             <div class="row">
                 <div class="col-lg-12 order-1 order-lg-2">
                     <div class="product-list">
-                        
+
                         <div class="row">
-                        @foreach($products as $item)
+                            @foreach($products as $item)
                             <div class="col-lg-4 col-sm-6">
                                 <div class="product-item">
                                     <div class="pi-pic">
@@ -183,7 +190,7 @@
                                         </ul>
                                     </div>
                                     <div class="pi-text">
-                                        <div class="catagory-name">{{$thisCate -> name}}</div>
+                                        <div class="catagory-name">{{$item -> category_id}}</div>
                                         <a href="#">
                                             <h5>{{$item -> name}}</h5>
                                         </a>
@@ -193,8 +200,8 @@
                                     </div>
                                 </div>
                             </div>
-                        
-                        @endforeach
+
+                            @endforeach
                         </div>
                     </div>
                 </div>
