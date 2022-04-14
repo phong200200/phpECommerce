@@ -1,25 +1,24 @@
 <head>
-    <meta charset="utf-8">
-    <title>Twitter Bootstrap shopping cart</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Bootstrap styles -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- Customize styles -->
-    <link href="/assets/css/style.css" rel="stylesheet" />
-    <!-- font awesome styles -->
-    <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <!--[if IE 7]>
-			<link href="css/font-awesome-ie7.min.css" rel="stylesheet">
-		<![endif]-->
+  <meta charset="UTF-8">
+  <meta name="description" content="Fashi Template">
+  <meta name="keywords" content="Fashi, unica, creative, html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ $title }}</title>
 
-    <!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <!-- Favicons -->
-    <link rel="shortcut icon" href="/assets/ico/favicon.ico">
+  <!-- Css Styles -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/themify-icons.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/elegant-icons.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/nice-select.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/jquery-ui.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/slicknav.min.css" type="text/css">
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+  <script src="/public/template/admin/js/main.js"></script>
 </head>
 @yield('headdeclare')

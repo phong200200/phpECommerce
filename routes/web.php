@@ -21,7 +21,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', [IndexController::class, 'index']) -> name('index');
+Route::get('cate/{cateid}', [IndexController::class, 'changecate']);
+
 
 Route::get('user/login', [UserLoginController::class, 'index'])->name('login');
 Route::post('/admin/users/login/store', [UserLoginController::class, 'store']);
@@ -32,9 +35,9 @@ Route::group(['prefix'=>'users', 'as'=>'users'], function(){
 });
 
 Route::group(['prefix'=>'index', 'as'=>'index'], function(){
-    Route::get('details/{product}', [ProductController::class, 'details']);
+    Route::get('product_details/{product}', [ProductController::class, 'details']);
     Route::group(['prefix'=>'products', 'as'=>'products'],function(){
-        Route::post('addtocart/{productid}', [CartController::class, 'addtocart']);
+        Route::get('addtocart/{id}', [CartController::class, 'addtocart']);
     });
 });
 

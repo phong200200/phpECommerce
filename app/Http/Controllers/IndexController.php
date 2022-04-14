@@ -12,6 +12,7 @@ class IndexController extends Controller
     protected $productservices;
     protected $categoryservices;
 
+    public $currentCate = 1;
     public function __construct(ProductService $productService, CategoryService $categoryservices)
     {
         $this -> productservices = $productService;
@@ -19,11 +20,23 @@ class IndexController extends Controller
     }
 
     public function index(){
-
         return view('base.index', [
+            'thisCate' => $this -> categoryservices -> getNameCateById($this -> currentCate)[0],
             'title' => 'Index',
             'products' => $this -> productservices -> getAll(),
-            'categories' => $this -> categoryservices -> getAllCategories()
+            'categories' => $this -> categoryservices -> getAllCategories(),
+            'currentcate' => $this -> currentCate
+        ]);
+    }
+
+    public function changecate($cateid){
+        $this -> currentCate = $cateid;
+        return view('base.index', [
+            'thisCate' => $this -> categoryservices -> getNameCateById($this -> currentCate)[0],
+            'title' => 'Index',
+            'products' => $this -> productservices -> getByParent($cateid),
+            'categories' => $this -> categoryservices -> getAllCategories(),
+            'currentcate' => $cateid
         ]);
     }
 }

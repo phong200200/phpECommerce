@@ -36,13 +36,13 @@ class CategoryService{
     public function getNameCateById($cate_id){
         try {
             $cate = DB::table('categories')
-                        ->select('namecate')
+                        ->select('name')
                         ->where('id', '=', $cate_id)
                         ->limit(1)
                         ->get();
             return $cate;
         } catch (\Throwable $th) {
-            return null;
+            return $th;
         }
     }
 }

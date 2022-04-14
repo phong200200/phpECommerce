@@ -22,3 +22,19 @@ function RemoveRow(id, url){
         });
     }
 }
+
+function ChangeCate(id, url){
+    $.ajax({
+        type: 'POST',
+        datatype: 'JSON',
+        data: {id},
+        url: url,
+        success: function(result){
+            if(result.error == false){
+                location.reload();
+            }else{
+                alert('We got error when load by Cate sirrr...');
+            }
+        }
+    });
+}

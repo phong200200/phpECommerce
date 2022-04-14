@@ -36,7 +36,7 @@ class ProductService{
     }
 
     public function getByParent($parentId){
-        return Product::where('parent_id', $parentId) -> get();
+        return Product::where('category_id', $parentId) -> get();
     }
     public function getAll(){
         return DB::table('products')-> orderBy('id') ->paginate(15);

@@ -30,7 +30,7 @@ class ProductController extends Controller
     }
 
     public function details(int $productid){
-        return view('index.quickview',[
+        return view('shopping.product_details',[
             'title' => 'Product Details',
             'product' => $this -> productservices -> getProductById($productid)[0]
         ]);

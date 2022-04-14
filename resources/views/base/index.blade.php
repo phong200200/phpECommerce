@@ -6,235 +6,325 @@
 </head>
 
 <body>
-    <!-- Header Section -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="topNav">
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="header-top">
             <div class="container">
-                <div class="alignR">
-                    <div class="pull-left socialNw">
-                        <a href="#"><span class="icon-twitter"></span></a>
-                        <a href="#"><span class="icon-facebook"></span></a>
-                        <a href="#"><span class="icon-youtube"></span></a>
-                        <a href="#"><span class="icon-tumblr"></span></a>
+                <div class="ht-left">
+                    <div class="mail-service">
+                        <i class=" fa fa-envelope"></i>
+                        hello.colorlib@gmail.com
                     </div>
-                    <a href="index.html"> <span class="icon-home"></span> Home</a>
-                    <a href="#"><span class="icon-user"></span> My Account</a>
-                    <a href="register.html"><span class="icon-edit"></span> Free Register </a>
-                    <a href="contact.html"><span class="icon-envelope"></span> Contact us</a>
-                    <a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
+                    <div class="phone-service">
+                        <i class=" fa fa-phone"></i>
+                        +65 11.188.888
+                    </div>
+                </div>
+                <div class="ht-right">
+                    <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <div class="lan-selector">
+                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
+                            <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt" data-title="English">English</option>
+                            <option value='yu' data-image="img/flag-2.jpg" data-imagecss="flag yu" data-title="Bangladesh">German </option>
+                        </select>
+                    </div>
+                    <div class="top-social">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-twitter-alt"></i></a>
+                        <a href="#"><i class="ti-linkedin"></i></a>
+                        <a href="#"><i class="ti-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="inner-header">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="logo">
+                            <a href="#">
+                                <img src="/assets/img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7">
+                        <div class="advanced-search">
+                            <button type="button" class="category-btn">All Categories</button>
+                            <form action="#" class="input-group">
+                                <input type="text" placeholder="What do you need?">
+                                <button type="button"><i class="ti-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-right col-md-3">
+                        <ul class="nav-right">
+                            <li class="heart-icon"><a href="#">
+                                    <i class="icon_heart_alt"></i>
+                                    <span>1</span>
+                                </a>
+                            </li>
+                            <li class="cart-icon"><a href="#">
+                                    <i class="icon_bag_alt"></i>
+                                    <span>3</span>
+                                </a>
+                                <div class="cart-hover">
+                                    <div class="select-items">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="si-pic"><img src="/assets/img/select-product-1.jpg" alt=""></td>
+                                                    <td class="si-text">
+                                                        <div class="product-selected">
+                                                            <p>₫60.00 x 1</p>
+                                                            <h6>Kabino Bedside Table</h6>
+                                                        </div>
+                                                    </td>
+                                                    <td class="si-close">
+                                                        <i class="ti-close"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="si-pic"><img src="/assets/img/select-product-2.jpg" alt=""></td>
+                                                    <td class="si-text">
+                                                        <div class="product-selected">
+                                                            <p>₫60.00 x 1</p>
+                                                            <h6>Kabino Bedside Table</h6>
+                                                        </div>
+                                                    </td>
+                                                    <td class="si-close">
+                                                        <i class="ti-close"></i>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="select-total">
+                                        <span>total:</span>
+                                        <h5>₫120.00</h5>
+                                    </div>
+                                    <div class="select-button">
+                                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
+                                        <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item">
+            <div class="container">
+                <div class="nav-depart">
+                    <div class="depart-btn">
+                        <i class="ti-menu"></i>
+                        <span>{{$thisCate -> name}}</span>
+                        <ul class="depart-hover">
+                            @foreach($categories as $cate)
+                                <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
+                            @endforeach
+
+                        </ul>
+                    </div>
+                </div>
+                <nav class="nav-menu mobile-menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Collection</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Pages</a></li>
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i> Home</a>
+                        <span>Shop</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Breadcrumb Section Begin -->
 
-    <!--
-Lower Header Section 
--->
-    <div class="container">
-        <div id="gototop"> </div>
-        <header id="header">
+    <!-- Product Shop Section Begin -->
+    <section class="product-shop spad">
+        <div class="container">
             <div class="row">
-                <div class="span4">
-                    <h1>
-                        <a class="logo" href="index.html"><span>Twitter Bootstrap ecommerce template</span>
-                            <img src="/assets/img/logo-bootstrap-shoping-cart.png" alt="bootstrap sexy shop">
-                        </a>
-                    </h1>
-                </div>
-                <div class="span4">
-                    <div class="offerNoteWrapper">
-                        <h1 class="dotmark">
-                            <i class="icon-cut"></i>
-                            Twitter Bootstrap shopping cart HTML template is available @ $14
-                        </h1>
-                    </div>
-                </div>
-                <div class="span4 alignR">
-                    <p><br> <strong> Support (24/7) : 0800 1234 678 </strong><br><br></p>
-                    <span class="btn ">[ 2 ] <span class="icon-shopping-cart"></span></span>
-                    <span class="btn btn-warning">$</span>
-                    <span class="btn">&pound;</span>
-                    <span class="btn ">&euro;</span>
-                </div>
-            </div>
-        </header>
-
-        <!--
-Navigation Bar Section 
--->
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="index.html">Home </a></li>
-                            <li class=""><a href="list-view.html">List View</a></li>
-                            <li class=""><a href="grid-view.html">Grid View</a></li>
-                            <li class=""><a href="three-col.html">Three Column</a></li>
-                            <li class=""><a href="four-col.html">Four Column</a></li>
-                            <li class=""><a href="general.html">General Content</a></li>
-                        </ul>
-                        <form action="#" class="navbar-search pull-left">
-                            <input type="text" placeholder="Search" class="search-query span2">
-                        </form>
-                        <ul class="nav pull-right">
-                            <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Login <b class="caret"></b></a>
-                                <div class="dropdown-menu">
-                                    <form class="form-horizontal loginFrm">
-                                        <div class="control-group">
-                                            <input type="text" class="span2" id="inputEmail" placeholder="Email">
+                <div class="col-lg-12 order-1 order-lg-2">
+                    <div class="product-list">
+                        
+                        <div class="row">
+                        @foreach($products as $item)
+                            <div class="col-lg-4 col-sm-6">
+                                <div class="product-item">
+                                    <div class="pi-pic">
+                                        <img src="{{ $item -> linkimg}}" alt="">
+                                        <div class="sale pp-sale">Sale</div>
+                                        <div class="icon">
+                                            <i class="icon_heart_alt"></i>
                                         </div>
-                                        <div class="control-group">
-                                            <input type="password" class="span2" id="inputPassword" placeholder="Password">
+                                        <ul>
+                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="#">+ Add Cart</a></li>
+                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pi-text">
+                                        <div class="catagory-name">{{$thisCate -> name}}</div>
+                                        <a href="#">
+                                            <h5>{{$item -> name}}</h5>
+                                        </a>
+                                        <div class="product-price">
+                                            ₫14.00
                                         </div>
-                                        <div class="control-group">
-                                            <label class="checkbox">
-                                                <input type="checkbox"> Remember me
-                                            </label>
-                                            <button type="submit" class="shopBtn btn-block">Sign in</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Body Section -->
-        <div class="row">
-            <div id="sidebar" class="span3">
-                <div class="well well-small">
-                    <ul class="nav nav-list">
-                        @foreach($categories as $cate)
-                        <li><a href="#"><span class="icon-chevron-right"></span>{{ $cate -> name }}</a></li>
-                        @endforeach
-                        <li><a href="#"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
-                        <li style="border:0"> &nbsp;</li>
-                        <li> <a class="totalInCart" href="cart.html"><strong>Total Amount <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
-                    </ul>
-                </div>
-
-                <div class="well well-small alert alert-warning cntr">
-                    <h2>50% Discount</h2>
-                    <p>
-                        only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
-                    </p>
-                </div>
-                <div class="well well-small"><a href="#"><img src="/assets/img/paypal.jpg" alt="payment method paypal"></a></div>
-
-                <a class="shopBtn btn-block" href="#">Upcoming products <br><small>Click to view</small></a>
-                <br>
-                <br>
-                <ul class="nav nav-list promowrapper">
-                    <li>
-                        <div class="thumbnail">
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                            <img src="/assets/img/bootstrap-ecommerce-templates.png" alt="bootstrap ecommerce templates">
-                            <div class="caption">
-                                <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li style="border:0"> &nbsp;</li>
-                    <li>
-                        <div class="thumbnail">
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                            <img src="/assets/img/shopping-cart-template.png" alt="shopping cart template">
-                            <div class="caption">
-                                <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-                            </div>
-                        </div>
-                    </li>
-                    <li style="border:0"> &nbsp;</li>
-                    <li>
-                        <div class="thumbnail">
-                            <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                            <img src="/assets/img/bootstrap-template.png" alt="bootstrap template">
-                            <div class="caption">
-                                <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-
-            </div>
-            <div class="span9">
-                <!-- 
-New Products
--->
-                <div class="well well-small">
-                    @foreach($categories as $cate)
-                    <h3>{{ $cate -> name}}</h3>
-                    <div class="row-fluid">
-                        <ul class="thumbnails">
-                            @foreach($products as $item)
-                            <li class="span4">
-                                <div class="thumbnail">
-                                    <a href="product_details.html" class="overlay"></a>
-                                    <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                    <a href="product_details.html"><img src="{{$item -> linkimg}}" alt="{{ $item -> name }}"></a>
-                                    <div class="caption cntr">
-                                        <p>Manicure & Pedicure</p>
-                                        <p><strong> {{$item -> price}} Vnds</strong></p>
-                                        <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
-                                        <div class="actionList">
-                                            <a class="pull-left" href="#">Add to Wish List </a>
-                                            <a class="pull-left" href="#"> Add to Compare </a>
-                                        </div>
-                                        <br class="clr">
                                     </div>
                                 </div>
-                            </li>
-                            @endforeach
-                        </ul>
+                            </div>
+                        
+                        @endforeach
+                        </div>
                     </div>
-
-                    @endforeach
-
                 </div>
             </div>
         </div>
-        <!-- 
-Clients 
--->
-        <section class="our_client">
-            <hr class="soften" />
-            <h4 class="title cntr"><span class="text">Manufactures</span></h4>
-            <hr class="soften" />
-            <div class="row">
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/1.png"></a>
+        </div>
+    </section>
+    <!-- Product Shop Section End -->
+
+    <!-- Partner Logo Section Begin -->
+    <div class="partner-logo">
+        <div class="container">
+            <div class="logo-carousel owl-carousel">
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="/assets/img/logo-carousel/logo-1.png" alt="">
+                    </div>
                 </div>
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/2.png"></a>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="/assets/img/logo-carousel/logo-2.png" alt="">
+                    </div>
                 </div>
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/3.png"></a>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="/assets/img/logo-carousel/logo-3.png" alt="">
+                    </div>
                 </div>
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/4.png"></a>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="/assets/img/logo-carousel/logo-4.png" alt="">
+                    </div>
                 </div>
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/5.png"></a>
-                </div>
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/6.png"></a>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="/assets/img/logo-carousel/logo-5.png" alt="">
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+    <!-- Partner Logo Section End -->
 
-        <!--
-Footer
--->
-        @yield('basefooter')
-        @include('base.footdeclare')
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer-left">
+                        <div class="footer-logo">
+                            <a href="#"><img src="/assets/img/footer-logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello.colorlib@gmail.com</li>
+                        </ul>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <div class="footer-widget">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Checkout</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Serivius</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-widget">
+                        <h5>My Account</h5>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Shopping Cart</a></li>
+                            <li><a href="#">Shop</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="newslatter-item">
+                        <h5>Join Our Newsletter Now</h5>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#" class="subscribe-form">
+                            <input type="text" placeholder="Enter Your Mail">
+                            <button type="button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-reserved">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-text">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.facebook.com/thuy.huynhvan" target="_blank">Huynh Van Thuy</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div>
+                        <div class="payment-pic">
+                            <img src="/assets/img/payment-method.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Js Plugins -->
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery-ui.min.js"></script>
+    <script src="/assets/js/jquery.countdown.min.js"></script>
+    <script src="/assets/js/jquery.nice-select.min.js"></script>
+    <script src="/assets/js/jquery.zoom.min.js"></script>
+    <script src="/assets/js/jquery.dd.min.js"></script>
+    <script src="/assets/js/jquery.slicknav.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 
 </html>
