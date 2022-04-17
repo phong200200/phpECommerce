@@ -17,5 +17,4 @@
         !!}
     </tbody>
 </table>
-</select>
 @endsection

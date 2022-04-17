@@ -1,7 +1,4 @@
 @extends('admin.base.adminpage')
-@section('head')
-<script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
-@endsection
 @section('admincontent')
 <form action="" method="POST">
     <div class="card-body">
@@ -52,9 +49,4 @@
     </div>
     @csrf
 </form>
-@endsection
-@section('footer')
-<script>
-    CKEDITOR.replace('content');
-</script>
 @endsection

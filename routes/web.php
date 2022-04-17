@@ -42,6 +42,7 @@ Route::group(['prefix'=>'product', 'as'=>'product'], function(){
 Route::group(['prefix'=>'shopping', 'as'=>'shopping'],function(){
     Route::group(['prefix'=>'cart', 'as'=>'cart'], function(){
         Route::get('add/{id}', [CartController::class, 'addtocart']);
+        Route::post('postcart', [CartController::class, 'postTocart']);
         Route::get('get', [CartController::class, 'index']);
         Route::get('clear', [CartController::class, 'deleteSession']);
         Route::get('delete/{id}',[CartController::class, 'deleteCartItem']);

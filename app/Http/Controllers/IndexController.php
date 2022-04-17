@@ -21,26 +21,7 @@ class IndexController extends Controller
     }
 
     public function index(){
-        // $listProds = $this -> productservices -> GetNewestProductWithSpecificQty(20);
-        // $listFour = array();
-        // $listTemp = array();
-        // $index = 0;
-        // $step = 3;
-        // for ($i = 0; $i < 20; $i++){
-        //     for ($i = $index; $i < $step; $i++){
-        //         array_push($listFour, $listProds[$i]);
-        //         $index += $step;
-        //         $step += 4;
-        //         if(count($listTemp) === 4 ){
-        //             array_push($listFour, $listTemp);
-        //             $listTemp = [];
-        //         }
-        //     }
-        //     dd(($listFour));
-        // }
         return view('base.index', [
-            'thefournewestprod' => $this -> productservices -> GetNewestProductWithSpecificQty(4),
-            'newproducts' => $this -> productservices -> GetNewestProductWithSpecificQty(4),
             'thisCate' => null,
             'title' => 'Index',
             'products' => $this -> productservices -> getAll(),

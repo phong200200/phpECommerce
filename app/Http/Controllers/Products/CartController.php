@@ -27,6 +27,9 @@ class CartController extends Controller
         ]);
     }
 
+    public function postTocart(Request $request){
+        dd($request);
+    }
     public function addtocart(Request $request, $id){
         $product = $this -> _productService -> getProductById($id);
         if($product != null){

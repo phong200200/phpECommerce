@@ -1,136 +1,138 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
-    <meta charset="utf-8">
-    <title>{{$title}}</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fashi Template">
+    <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Bootstrap styles -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- Customize styles -->
-    <link href="/assets/style.css" rel="stylesheet" />
-    <!-- font awesome styles -->
-    <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <!--[if IE 7]>
-			<link href="css/font-awesome-ie7.min.css" rel="stylesheet">
-		<![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fashi | Template</title>
 
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <!-- Favicons -->
-    <link rel="shortcut icon" href="/assets/ico/favicon.ico">
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/cart/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/cart/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/cart/css/themify-icons.css" type="text/css">
+    <link rel="stylesheet" href="/cart/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/cart/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/cart/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/cart/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/cart/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/cart/css/style.css" type="text/css">
 </head>
 
 <body>
-    <!-- 
-	Upper Header Section 
--->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="topNav">
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="header-top">
             <div class="container">
-                <div class="alignR">
-                    <div class="pull-left socialNw">
-                        <a href="#"><span class="icon-twitter"></span></a>
-                        <a href="#"><span class="icon-facebook"></span></a>
-                        <a href="#"><span class="icon-youtube"></span></a>
-                        <a href="#"><span class="icon-tumblr"></span></a>
+                <div class="ht-left">
+                    <div class="mail-service">
+                        <i class=" fa fa-envelope"></i>
+                        hello.colorlib@gmail.com
                     </div>
-                    <a href="index.html"> <span class="icon-home"></span> Home</a>
-                    <a href="#"><span class="icon-user"></span> My Account</a>
-                    <a href="register.html"><span class="icon-edit"></span> Free Register </a>
-                    <a href="contact.html"><span class="icon-envelope"></span> Contact us</a>
-                    <a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span
-                            class="badge badge-warning"> $448.42</span></a>
+                    <div class="phone-service">
+                        <i class=" fa fa-phone"></i>
+                        +65 11.188.888
+                    </div>
+                </div>
+                <div class="ht-right">
+                    <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <div class="lan-selector">
+                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
+                            <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt"
+                                data-title="English">English</option>
+                            <option value='yu' data-image="img/flag-2.jpg" data-imagecss="flag yu"
+                                data-title="Bangladesh">German </option>
+                        </select>
+                    </div>
+                    <div class="top-social">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-twitter-alt"></i></a>
+                        <a href="#"><i class="ti-linkedin"></i></a>
+                        <a href="#"><i class="ti-pinterest"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!--
-Lower Header Section 
--->
-    <div class="container">
-        <div id="gototop"> </div>
-        <header id="header">
-            <div class="row">
-                <div class="span4">
-                    <h1>
-                        <a class="logo" href="index.html"><span>Twitter Bootstrap ecommerce template</span>
-                            <img src="/assets/img/logo-bootstrap-shoping-cart.png" alt="bootstrap sexy shop">
-                        </a>
-                    </h1>
-                </div>
-                <div class="span4">
-                    <div class="offerNoteWrapper">
-                        <h1 class="dotmark">
-                            <i class="icon-cut"></i>
-                            Twitter Bootstrap shopping cart HTML template is available @ $14
-                        </h1>
+        <div class="container">
+            <div class="inner-header">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="logo">
+                            <a href="#">
+                                <img src="/cart/img/logo.png" alt="">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="span4 alignR">
-                    <p><br> <strong> Support (24/7) : 0800 1234 678 </strong><br><br></p>
-                    @if(Session::get('cart') != null)
-                    <span class="btn dropdown">{{Session -> get('cart')['totalQuantity']}} 
-                        @else
-                        <span class="btn dropdown"> 0
-
-                        @endif
-                        <span class="icon-shopping-cart ">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        </span> Item(s) <b class="caret"></b></a>
-                            <div class="dropdown-menu">
-                                <form class="form-horizontal loginFrm">
-                                    <div class="control-group">
-                                        <input type="text" class="span2" id="inputEmail" placeholder="Email">
+                    <div class="col-lg-7 col-md-7">
+                        <div class="advanced-search">
+                            <button type="button" class="category-btn">All Categories</button>
+                            <form action="#" class="input-group">
+                                <input type="text" placeholder="What do you need?">
+                                <button type="button"><i class="ti-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-right col-md-3">
+                        <ul class="nav-right">
+                            <li class="heart-icon"><a href="#">
+                                    <i class="icon_heart_alt"></i>
+                                    <span>1</span>
+                                </a>
+                            </li>
+                            <li class="/cart-icon">
+                                <a href="#">
+                                    <i class="icon_bag_alt"></i>
+                                    @if($newcart != null)
+                                    <span id="span-total-cart">{{ $newcart -> totalQuantity}}</span>
+                                    @else
+                                    <span>0</span>
+                                    @endif
+                                </a>
+                                <div class="/cart-hover">
+                                    <div id="changeable-list-cart">
+                                        <div class="select-items">
+                                            @if($newcart != null)
+                                            <table>
+                                                <tbody>
+                                                    @foreach($newcart -> products as $item)
+                                                    <tr>
+                                                        <td class="si-pic"><img src="{{ $item['productInfo'] -> linkimg }}" alt=""></td>
+                                                        <td class="si-text">
+                                                            <div class="product-selected">
+                                                                <p>{{ $item['productInfo'] -> price }} x {{ $item['quantity']}}</p>
+                                                                <h6>{{ $item['productInfo'] -> name }}</h6>
+                                                            </div>
+                                                        </td>
+                                                        <td class="si-close">
+                                                            <i class="ti-close" data-id="{{ $item['productInfo'] -> id }} "></i>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            <nav>
+                                                <h5>Total: <strong>{{number_format($newcart->totalPrice)}}đ</strong> </h5>
+                                            </nav>
+                                            @endif
+                                            <br />
+                                        </div>
                                     </div>
-                                    <div class="control-group">
-                                        <input type="password" class="span2" id="inputPassword" placeholder="Password">
+                                    <div class="select-button">
+                                        <a href="/shopping/cart/get" class="primary-btn view-card">VIEW CART</a>
+                                        <a href="/shopping/order/get" class="primary-btn checkout-btn">CHECK OUT</a>
+                                        <a href="/shopping/cart/clear" onclick="ClearCart()" class="primary-btn view-card checkout-btn">Clear Cart</a>
                                     </div>
-                                    <div class="control-group">
-                                        <label class="checkbox">
-                                            <input type="checkbox"> Remember me
-                                        </label>
-                                        <button type="submit" class="shopBtn btn-block">Sign in</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </span>
-                    
-                    
-                </div>
-            </div>
-        </header>
-
-        <!--
-Navigation Bar Section 
--->
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="index.html">Home </a></li>
-                            <li class=""><a href="list-view.html">List View</a></li>
-                            <li class=""><a href="grid-view.html">Grid View</a></li>
-                            <li class=""><a href="three-col.html">Three Column</a></li>
-                            <li class=""><a href="four-col.html">Four Column</a></li>
-                        </ul>
-                        <form action="#" class="navbar-search pull-left">
-                            <input type="text" placeholder="Search" class="search-query span2">
-                        </form>
-                        <ul class="nav pull-right">
-                            <li class="dropdown">
-                                <a href="/user/login"><span
-                                        class="icon-lock"></span> Login <b class="caret"></b></a>
-                                <div class="dropdown-menu">
                                 </div>
                             </li>
                         </ul>
@@ -138,97 +140,182 @@ Navigation Bar Section
                 </div>
             </div>
         </div>
-
-        <!-- Content -->
-        @yield('basecontent')
-        <!-- End Content -->
-
-        <!-- Clients -->
-        <section class="our_client">
-            <hr class="soften" />
-            <h4 class="title cntr"><span class="text">Manufactures</span></h4>
-            <hr class="soften" />
-            <div class="row">
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/1.png"></a>
+        <div class="nav-item">
+            <div class="container">
+                <div class="nav-depart">
+                    <div class="depart-btn">
+                        <i class="ti-menu"></i>
+                        <ul class="depart-hover">
+                            @if($thisCate === null)
+                                <span>All Categories</span>
+                                @foreach($categories as $cate)
+                                    <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
+                                @endforeach
+                            @else
+                                <span>{{$thisCate -> name}}</span>
+                                <li><a href="/">All</a></li>
+                                @foreach($categories as $cate)
+                                    <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
                 </div>
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/2.png"></a>
-                </div>
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/3.png"></a>
-                </div>
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/4.png"></a>
-                </div>
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/5.png"></a>
-                </div>
-                <div class="span2">
-                    <a href="#"><img alt="" src="/assets/img/6.png"></a>
-                </div>
+                <nav class="nav-menu mobile-menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Collection</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Pages</a></li>
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
             </div>
-        </section>
+        </div>
+    </header>
+    <!-- Header End -->
 
-        <!--
-Footer
--->
-        <footer class="footer">
-            <div class="row-fluid">
-                <div class="span2">
-                    <h5>Your Account</h5>
-                    <a href="#">YOUR ACCOUNT</a><br>
-                    <a href="#">PERSONAL INFORMATION</a><br>
-                    <a href="#">ADDRESSES</a><br>
-                    <a href="#">DISCOUNT</a><br>
-                    <a href="#">ORDER HISTORY</a><br>
-                </div>
-                <div class="span2">
-                    <h5>Iinformation</h5>
-                    <a href="contact.html">CONTACT</a><br>
-                    <a href="#">SITEMAP</a><br>
-                    <a href="#">LEGAL NOTICE</a><br>
-                    <a href="#">TERMS AND CONDITIONS</a><br>
-                    <a href="#">ABOUT US</a><br>
-                </div>
-                <div class="span2">
-                    <h5>Our Offer</h5>
-                    <a href="#">NEW PRODUCTS</a> <br>
-                    <a href="#">TOP SELLERS</a><br>
-                    <a href="#">SPECIALS</a><br>
-                    <a href="#">MANUFACTURERS</a><br>
-                    <a href="#">SUPPLIERS</a> <br />
-                </div>
-                <div class="span6">
-                    <h5>The standard chunk of Lorem</h5>
-                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for
-                    those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
-                    Malorum" by Cicero are also reproduced in their exact original form,
-                    accompanied by English versions from the 1914 translation by H. Rackham.
-                </div>
-            </div>
-        </footer>
-    </div><!-- /container -->
-
-    <div class="copyright">
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
         <div class="container">
-            <p class="pull-right">
-                <a href="#"><img src="/assets/img/maestro.png" alt="payment"></a>
-                <a href="#"><img src="/assets/img/mc.png" alt="payment"></a>
-                <a href="#"><img src="/assets/img/pp.png" alt="payment"></a>
-                <a href="#"><img src="/assets/img/visa.png" alt="payment"></a>
-                <a href="#"><img src="/assets/img/disc.png" alt="payment"></a>
-            </p>
-            <span>Copyright &copy; 2013<br> bootstrap ecommerce shopping template</span>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i> Home</a>
+                        <span>Shop</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/assets/js/jquery.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/jquery.easing-1.3.min.js"></script>
-    <script src="/assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-    <script src="/assets/js/shop.js"></script>
+    <!-- Breadcrumb Section Begin -->
+
+    <!-- Product Shop Section Begin -->
+    @yield('indexcontent')
+    <!-- Product Shop Section End -->
+
+    <!-- Partner Logo Section Begin -->
+    <div class="partner-logo">
+        <div class="container">
+            <div class="logo-carousel owl-carousel">
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="/cart/img/logo-carousel/logo-1.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="/cart/img/logo-carousel/logo-2.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="/cart/img/logo-carousel/logo-3.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="/cart/img/logo-carousel/logo-4.png" alt="">
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="/cart/img/logo-carousel/logo-5.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Partner Logo Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer-left">
+                        <div class="footer-logo">
+                            <a href="#"><img src="/cart/img/footer-logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello.colorlib@gmail.com</li>
+                        </ul>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <div class="footer-widget">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Checkout</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Serivius</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-widget">
+                        <h5>My Account</h5>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Shopping Cart</a></li>
+                            <li><a href="#">Shop</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="newslatter-item">
+                        <h5>Join Our Newsletter Now</h5>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#" class="subscribe-form">
+                            <input type="text" placeholder="Enter Your Mail">
+                            <button type="button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-reserved">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-text">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.facebook.com/thuy.huynhvan" target="_blank">Huynh Van Thuy</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div>
+                        <div class="payment-pic">
+                            <img src="/cart/img/payment-method.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="/cart/js/jquery-3.3.1.min.js"></script>
+    <script src="/cart/js/bootstrap.min.js"></script>
+    <script src="/cart/js/jquery-ui.min.js"></script>
+    <script src="/cart/js/jquery.countdown.min.js"></script>
+    <script src="/cart/js/jquery.nice-select.min.js"></script>
+    <script src="/cart/js/jquery.zoom.min.js"></script>
+    <script src="/cart/js/jquery.dd.min.js"></script>
+    <script src="/cart/js/jquery.slicknav.js"></script>
+    <script src="/cart/js/owl.carousel.min.js"></script>
+    <script src="/cart/js/main.js"></script>
 </body>
 
 </html>
