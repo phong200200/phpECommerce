@@ -35,6 +35,15 @@ class ProductService{
         }
     }
 
+
+    public function GetNewestProductWithSpecificQty($qty){
+        $product = DB::table('products') -> orderByDesc('created_at') -> limit($qty)-> get();
+        if($product == null){
+            return null;
+        }
+        return $product;
+    }
+
     public function getByParent($parentId){
         return Product::where('category_id', $parentId) -> get();
     }
@@ -44,8 +53,7 @@ class ProductService{
 
     public function getProductById($id){
         $product = DB::table('products')
-                        ->where('id', '=', $id)
-                        ->get();
+                        ->where('id', '=', $id) -> first();
         if($product == null){
             return null;
         }

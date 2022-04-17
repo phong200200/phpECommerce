@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Products\CartController;
+use App\Http\Controllers\Products\OrderController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
 use App\Http\Controllers\User\SignUpController;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +23,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [IndexController::class, 'index']) -> name('index');
+
 Route::get('cate/{cateid}', [IndexController::class, 'changecate']);
+Route::get('/', [IndexController::class, 'index']) -> name('index');
 
 
 Route::get('user/login', [UserLoginController::class, 'index'])->name('login');
@@ -34,10 +36,20 @@ Route::group(['prefix'=>'users', 'as'=>'users'], function(){
     Route::post('signup', [SignUpController::class, 'store']);
 });
 
-Route::group(['prefix'=>'index', 'as'=>'index'], function(){
-    Route::get('product_details/{product}', [ProductController::class, 'details']);
-    Route::group(['prefix'=>'products', 'as'=>'products'],function(){
-        Route::get('addtocart/{id}', [CartController::class, 'addtocart']);
+Route::group(['prefix'=>'product', 'as'=>'product'], function(){
+    Route::get('details/{product}', [ProductController::class, 'details']);
+});
+
+Route::group(['prefix'=>'shopping', 'as'=>'shopping'],function(){
+    Route::group(['prefix'=>'cart', 'as'=>'cart'], function(){
+        Route::get('add/{id}', [CartController::class, 'addtocart']);
+        Route::get('get', [CartController::class, 'index']);
+        Route::get('clear', [CartController::class, 'deleteSession']);
+        Route::get('delete/{id}',[CartController::class, 'deleteCartItem']);
+        Route::get('delelefromcheckout/{id}', [CartController::class, 'delelefromcheckout']);
+    });
+    Route::group(['prefix'=>'order', 'as'=>'order'], function(){
+        Route::get('get', [OrderController::class, 'index']);
     });
 });
 

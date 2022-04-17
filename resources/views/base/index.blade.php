@@ -1,337 +1,264 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('base.page')
+@section('basecontent')
+<div class="inject-content">
+    <!-- 
+  Body Section 
+        Variable[
+            'thisCate' => null,
+            'title' => 'Index',
+            'products' => $this -> productservices -> getAll(),
+            'categories' => $this -> categoryservices -> getAllCategories(),
+            'currentcate' => $this -> currentCate,
+            'newcart' => Session('cart')
+        ]
 
-<head>
-    @include('base.headdeclare')
-</head>
+        @if($thisCate === null)
+            <span>All Categories</span>
+            @foreach($categories as $cate)
+                <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
+            @endforeach
+        @else
+            <span>{{$thisCate -> name}}</span>
+            <li><a href="/">All</a></li>
+            @foreach($categories as $cate)
+                <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
+            @endforeach
+        @endif
+  -->
+    <div class="row">
+        <div id="sidebar" class="span3">
+            <div class="well well-small">
+                <ul class="nav nav-list">
+                    @if($thisCate === null)
+                    <span>All Categories</span>
+                    @foreach($categories as $cate)
+                    <li><a class="icon-chevron-right" href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
+                    @endforeach
+                    @else
+                    <span>Current Category: {{$thisCate -> name}}</span>
+                    <li><a class="icon-chevron-right" href="/">All</a></li>
+                    @foreach($categories as $cate)
+                    <li><a href="/cate/{{$cate -> id}}"><span class="icon-chevron-right"></span>{{$cate -> name}}</a>
+                    </li>
+                    @endforeach
+                    @endif
 
-<body>
-    <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="header-top">
-            <div class="container">
-                <div class="ht-left">
-                    <div class="mail-service">
-                        <i class=" fa fa-envelope"></i>
-                        hello.colorlib@gmail.com
-                    </div>
-                    <div class="phone-service">
-                        <i class=" fa fa-phone"></i>
-                        +65 11.188.888
-                    </div>
-                </div>
-                <div class="ht-right">
-                    <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
-                    <div class="lan-selector">
-                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                            <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt" data-title="English">English</option>
-                            <option value='yu' data-image="img/flag-2.jpg" data-imagecss="flag yu" data-title="Bangladesh">German </option>
-                        </select>
-                    </div>
-                    <div class="top-social">
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"><i class="ti-twitter-alt"></i></a>
-                        <a href="#"><i class="ti-linkedin"></i></a>
-                        <a href="#"><i class="ti-pinterest"></i></a>
-                    </div>
-                </div>
+                    <li style="border:1"> &nbsp;</li>
+                </ul>
             </div>
-        </div>
-        <div class="container">
-            <div class="inner-header">
-                <div class="row">
-                    <div class="col-lg-2 col-md-2">
-                        <div class="logo">
-                            <a href="#">
-                                <img src="/assets/img/logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-7 col-md-7">
-                        <div class="advanced-search">
-                            <button type="button" class="category-btn">All Categories</button>
-                            <form action="#" class="input-group">
-                                <input type="text" placeholder="What do you need?">
-                                <button type="button"><i class="ti-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 text-right col-md-3">
-                        <ul class="nav-right">
-                            <li class="heart-icon"><a href="#">
-                                    <i class="icon_heart_alt"></i>
-                                    <span>1</span>
-                                </a>
-                            </li>
-                            <li class="cart-icon"><a href="#">
-                                    <i class="icon_bag_alt"></i>
-                                    <span>3</span>
-                                </a>
-                                <div class="cart-hover">
-                                    <div class="select-items">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="si-pic"><img src="/assets/img/select-product-1.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>₫60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="si-pic"><img src="/assets/img/select-product-2.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>₫60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="select-total">
-                                        <span>total:</span>
-                                        <h5>₫120.00</h5>
-                                    </div>
-                                    <div class="select-button">
-                                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                                        <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
+            <div class="well well-small alert alert-warning cntr">
+                <h2>50% Discount</h2>
+                <p>
+                    only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
+                </p>
             </div>
-        </div>
-        <div class="nav-item">
-            <div class="container">
-                <div class="nav-depart">
-                    <div class="depart-btn">
-                        <i class="ti-menu"></i>
-                        <ul class="depart-hover">
-                            @if($thisCate === null)
-                                <span>All Categories</span>
-                                @foreach($categories as $cate)
-                                    <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
-                                @endforeach
-                            @else
-                                <span>{{$thisCate -> name}}</span>
-                                <li><a href="/">All</a></li>
-                                @foreach($categories as $cate)
-                                    <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
-                                @endforeach
-                            @endif
-                        </ul>
-                    </div>
-                </div>
-                <nav class="nav-menu mobile-menu">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Collection</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Pages</a></li>
-                    </ul>
-                </nav>
-                <div id="mobile-menu-wrap"></div>
+            <div class="well well-small"><a href="#"><img src="assets/img/paypal.jpg" alt="payment method paypal"></a>
             </div>
+
+            <a class="shopBtn btn-block" href="#">Upcoming products <br><small>Click to view</small></a>
+            <br>
+            <br>
+            <br>
+            <br>
+
         </div>
-    </header>
-    <!-- Header End -->
-
-
-    <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <a href="#"><i class="fa fa-home"></i> Home</a>
-                        <span>Shop</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Section Begin -->
-
-    <!-- Product Shop Section Begin -->
-    <section class="product-shop spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 order-1 order-lg-2">
-                    <div class="product-list">
-
-                        <div class="row">
-                            @foreach($products as $item)
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{ $item -> linkimg}}" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="#">+ Add Cart</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">{{$item -> category_id}}</div>
-                                        <a href="#">
-                                            <h5>{{$item -> name}}</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            ₫14.00
-                                        </div>
-                                    </div>
-                                </div>
+        <div class="span9">
+            <div class="well np">
+                <div id="myCarousel" class="carousel slide homCar">
+                    <div class="carousel-inner">
+                        @for ($i = 0; $i < 4; $i++) <div class="item">
+                            <img style="width:100%" src="{{$products[$i] -> linkimg}}"
+                                alt="bootstrap ecommerce templates">
+                            <div class="carousel-caption">
+                                <h4>Name: {{$products[$i] -> name}}</h4></br>
+                                <p><span>Category:{{$products[$i] -> category_id}}</span></p>
                             </div>
+                    </div>
+                    @endfor
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+            </div>
+        </div>
+        <!--
+  New Products
+  -->
+        <div class="well well-small">
+            <h3>New Products</h3>
+            <hr class="soften" />
+            <div class="row-fluid">
+                <div id="newProductCar" class="carousel slide">
+                    <div class="carousel-inner">
 
-                            @endforeach
+                        <div class="item active">
+                            <ul class="thumbnails">
+                                @foreach($thefournewestprod as $item)
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href="/product/details/{{$item -> id}}" title="add to cart">
+                                            <span class="icon-search">
+                                            </span> QUICK VIEW
+                                        </a>
+                                        <a href="#" class="tag"></a>
+                                        <a href="#"><img src="{{$item -> linkimg}}" alt="bootstrap-ring"></a>
+                                    </div>
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-    <!-- Product Shop Section End -->
 
-    <!-- Partner Logo Section Begin -->
-    <div class="partner-logo">
-        <div class="container">
-            <div class="logo-carousel owl-carousel">
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="/assets/img/logo-carousel/logo-1.png" alt="">
+                        <div class="item">
+                            <ul class="thumbnails">
+                                <!-- @for ($i = 0; $i < 4; $i++) -->
+                                @foreach($newproducts as $item)
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href="/product/details/{{$item -> id}}"
+                                            title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                                        <a href="/product/details/{{$item -> id}}"><img src="{{$item -> linkimg}}"
+                                                alt=""></a>
+                                    </div>
+                                </li>
+                                @endforeach
+
+                            </ul>
+                        </div>
+
                     </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="/assets/img/logo-carousel/logo-2.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="/assets/img/logo-carousel/logo-3.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="/assets/img/logo-carousel/logo-4.png" alt="">
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="/assets/img/logo-carousel/logo-5.png" alt="">
-                    </div>
+                    <a class="left carousel-control" href="#newProductCar" data-slide="prev">&lsaquo;</a>
+                    <a class="right carousel-control" href="#newProductCar" data-slide="next">&rsaquo;</a>
                 </div>
             </div>
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    <li class="span4">
+                        <div class="thumbnail">
+                            <a class="zoomTool" href="/product/details/{{$item -> id}}" title="add to cart"><span
+                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a href="/product/details/{{$item -> id}}"><img src="assets/img/b.jpg" alt=""></a>
+                            <div class="caption cntr">
+                                <p>Manicure & Pedicure</p>
+                                <p><strong> $22.00</strong></p>
+                                <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                                <div class="actionList">
+                                    <a class="pull-left" href="#">Add to Wish List </a>
+                                    <a class="pull-left" href="#"> Add to Compare </a>
+                                </div>
+                                <br class="clr">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span4">
+                        <div class="thumbnail">
+                            <a class="zoomTool" href="/product/details/{{$item -> id}}" title="add to cart"><span
+                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a href="/product/details/{{$item -> id}}"><img src="assets/img/c.jpg" alt=""></a>
+                            <div class="caption cntr">
+                                <p>Manicure & Pedicure</p>
+                                <p><strong> $22.00</strong></p>
+                                <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                                <div class="actionList">
+                                    <a class="pull-left" href="#">Add to Wish List </a>
+                                    <a class="pull-left" href="#"> Add to Compare </a>
+                                </div>
+                                <br class="clr">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span4">
+                        <div class="thumbnail">
+                            <a class="zoomTool" href="/product/details/{{$item -> id}}" title="add to cart"><span
+                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a href="/product/details/{{$item -> id}}"><img src="assets/img/a.jpg" alt=""></a>
+                            <div class="caption cntr">
+                                <p>Manicure & Pedicure</p>
+                                <p><strong> $22.00</strong></p>
+                                <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                                <div class="actionList">
+                                    <a class="pull-left" href="#">Add to Wish List </a>
+                                    <a class="pull-left" href="#"> Add to Compare </a>
+                                </div>
+                                <br class="clr">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--
+      Featured Products
+      -->
+        <div class="well well-small">
+            <h3><a class="btn btn-mini pull-right" href="products.html" title="View more">VIew More<span
+                        class="icon-plus"></span></a> Featured Products </h3>
+            <hr class="soften" />
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    <li class="span4">
+                        <div class="thumbnail">
+                            <a class="zoomTool" href="/product/details/{{$item -> id}}" title="add to cart"><span
+                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a href="/product/details/{{$item -> id}}"><img src="assets/img/d.jpg" alt=""></a>
+                            <div class="caption">
+                                <h5>Manicure & Pedicure</h5>
+                                <h4>
+                                    <a class="defaultBtn" href="/product/details/{{$item -> id}}"
+                                        title="Click to view"><span class="icon-zoom-in"></span></a>
+                                    <a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
+                                    <span class="pull-right">$22.00</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span4">
+                        <div class="thumbnail">
+                            <a class="zoomTool" href="/product/details/{{$item -> id}}" title="add to cart"><span
+                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a href="/product/details/{{$item -> id}}"><img src="assets/img/e.jpg" alt=""></a>
+                            <div class="caption">
+                                <h5>Manicure & Pedicure</h5>
+                                <h4>
+                                    <a class="defaultBtn" href="/product/details/{{$item -> id}}"
+                                        title="Click to view"><span class="icon-zoom-in"></span></a>
+                                    <a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
+                                    <span class="pull-right">$22.00</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span4">
+                        <div class="thumbnail">
+                            <a class="zoomTool" href="/product/details/{{$item -> id}}" title="add to cart"><span
+                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a href="/product/details/{{$item -> id}}"><img src="assets/img/f.jpg" alt="" /></a>
+                            <div class="caption">
+                                <h5>Manicure & Pedicure</h5>
+                                <h4>
+                                    <a class="defaultBtn" href="/product/details/{{$item -> id}}"
+                                        title="Click to view"><span class="icon-zoom-in"></span></a>
+                                    <a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
+                                    <span class="pull-right">$22.00</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="well well-small">
+            <a class="btn btn-mini pull-right" href="#">View more <span class="icon-plus"></span></a>
+            Popular Products
+        </div>
+        <hr>
+        <div class="well well-small">
+            <a class="btn btn-mini pull-right" href="#">View more <span class="icon-plus"></span></a>
+            Best selling Products
         </div>
     </div>
-    <!-- Partner Logo Section End -->
+</div>
 
-    <!-- Footer Section Begin -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="footer-left">
-                        <div class="footer-logo">
-                            <a href="#"><img src="/assets/img/footer-logo.png" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello.colorlib@gmail.com</li>
-                        </ul>
-                        <div class="footer-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 offset-lg-1">
-                    <div class="footer-widget">
-                        <h5>Information</h5>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Serivius</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="footer-widget">
-                        <h5>My Account</h5>
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Shop</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="newslatter-item">
-                        <h5>Join Our Newsletter Now</h5>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#" class="subscribe-form">
-                            <input type="text" placeholder="Enter Your Mail">
-                            <button type="button">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright-reserved">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="copyright-text">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>
-                                document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.facebook.com/thuy.huynhvan" target="_blank">Huynh Van Thuy</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </div>
-                        <div class="payment-pic">
-                            <img src="/assets/img/payment-method.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
-    <!-- Js Plugins -->
-    <script src="/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/jquery-ui.min.js"></script>
-    <script src="/assets/js/jquery.countdown.min.js"></script>
-    <script src="/assets/js/jquery.nice-select.min.js"></script>
-    <script src="/assets/js/jquery.zoom.min.js"></script>
-    <script src="/assets/js/jquery.dd.min.js"></script>
-    <script src="/assets/js/jquery.slicknav.js"></script>
-    <script src="/assets/js/owl.carousel.min.js"></script>
-    <script src="/assets/js/main.js"></script>
-</body>
+</div>
 
-</html>
+@endsection

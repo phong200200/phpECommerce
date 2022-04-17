@@ -17,8 +17,8 @@ class CartHelper{
     public function AddCart($product, $id){
         $newProduct = ['quantity' => 0, 'price' => $product -> price, 'productInfo' => $product];
         if($this -> products){
-            if(array_key_exists($id, $product)){
-                $newProduct = $product[$id];
+            if(array_key_exists($id, $this -> products)){
+                $newProduct = $this -> products[$id];
             }
         }
         $newProduct['quantity']++;
@@ -26,5 +26,12 @@ class CartHelper{
         $this -> products[$id] = $newProduct;
         $this -> totalPrice += $product -> price;
         $this -> totalQuantity ++;
+    }
+
+    
+    public function deleteCartItem($id){
+        $this -> totalQuantity -= $this -> products[$id]['quantity'];
+        $this -> totalPrice -= $this -> products[$id]['price'];
+        unset($this -> products[$id]);
     }
 }

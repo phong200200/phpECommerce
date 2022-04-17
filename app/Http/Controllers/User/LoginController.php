@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\IndexController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -10,7 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
-    //
     public function index(){
         return view('users.login', [
             'title' => 'Login Page'
@@ -39,7 +39,7 @@ class LoginController extends Controller
                 return redirect() -> route('admin');
             }
             else if($role_id == 2){
-                return redirect() -> route('index');
+                return redirect() -> to('/');
             }
         }
         Session::flash('error', 'Email or Pass doesnt match');
