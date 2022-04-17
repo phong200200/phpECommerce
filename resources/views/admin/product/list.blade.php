@@ -1,7 +1,5 @@
-@extends('admin.main')
-
-@section('content')
-
+@extends('admin.base.adminpage')
+@section('admincontent')
 <table>
     <thead>
         <tr>
@@ -18,9 +16,6 @@
             \App\BusinessHelper\BusinessMappingHelper::product($products)
         !!}
     </tbody>
-    
 </table>
-
-    
 </select>
 @endsection

@@ -29,7 +29,6 @@ Route::get('/', [IndexController::class, 'index']) -> name('index');
 
 
 Route::get('user/login', [UserLoginController::class, 'index'])->name('login');
-Route::post('/admin/users/login/store', [UserLoginController::class, 'store']);
 
 Route::group(['prefix'=>'users', 'as'=>'users'], function(){
     Route::get('signup', [SignUpController::class, 'index']);
@@ -52,12 +51,12 @@ Route::group(['prefix'=>'shopping', 'as'=>'shopping'],function(){
         Route::get('get', [OrderController::class, 'index']);
     });
 });
-
+Route::get('manage', [MainController::class, 'index']) -> name('management');
+Route::post('/admin/users/login/store', [UserLoginController::class, 'store']);
 
 Route::middleware(['auth'])->group(function () {
-
     Route::group(['prefix'=>'admin', 'as'=>'admin'], function(){
-        Route::get('/', [MainController::class, 'index']);
+        
         Route::group(['prefix'=>'product','as'=>'product'], function(){
             Route::get('add', [ProductController::class, 'create']);
             Route::post('add', [ProductController::class, 'store']);

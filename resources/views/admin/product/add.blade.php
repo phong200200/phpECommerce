@@ -1,8 +1,8 @@
-@extends('admin.main')
+@extends('admin.base.adminpage')
 @section('head')
 <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
 @endsection
-@section('content')
+@section('admincontent')
 <form action="" method="POST">
     <div class="card-body">
         <div class="form-group">

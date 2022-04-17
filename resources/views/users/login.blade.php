@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  @include('admin.head')
-</head>
-
+@extends('base.page')
+@section('basecontent')
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
@@ -16,7 +11,7 @@
         <p class="login-box-msg">Sign in to start your session</p>
 
         @include('admin.alert')
-        <form action="/admin/users/login/store" method="post">
+        <form action="admin/users/login/store" method="post">
           <div class="input-group mb-3">
             <input type="email" name="email" class="form-control" placeholder="Email">
             <div class="input-group-append">
@@ -57,7 +52,5 @@
       </div>
 
     </div>
-    @include('admin.footer')
 </body>
-
-</html>
+@endsection

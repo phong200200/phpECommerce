@@ -20,7 +20,6 @@
             </tbody>
         </table>
     </div>
-    
 </div>
 @else
 <div id="changeable-list-cart">

@@ -67,13 +67,15 @@
             <div class="well np">
                 <div id="myCarousel" class="carousel slide homCar">
                     <div class="carousel-inner">
-                        @for ($i = 0; $i < 4; $i++) <div class="item">
+                        @for ($i = 0; $i < 4; $i++) 
+                        <div class="item">
                             <img style="width:100%" src="{{$products[$i] -> linkimg}}"
                                 alt="bootstrap ecommerce templates">
                             <div class="carousel-caption">
                                 <h4>Name: {{$products[$i] -> name}}</h4></br>
                                 <p><span>Category:{{$products[$i] -> category_id}}</span></p>
                             </div>
+                        
                     </div>
                     @endfor
                 </div>
@@ -110,7 +112,6 @@
 
                         <div class="item">
                             <ul class="thumbnails">
-                                <!-- @for ($i = 0; $i < 4; $i++) -->
                                 @foreach($newproducts as $item)
                                 <li class="span3">
                                     <div class="thumbnail">

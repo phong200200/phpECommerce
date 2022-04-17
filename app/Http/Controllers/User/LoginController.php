@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\IndexController;
 use Illuminate\Http\Request;
@@ -36,10 +37,10 @@ class LoginController extends Controller
             $request->input('remember')
         )){
             if($role_id == 1){
-                return redirect() -> route('admin');
+                return redirect() -> route('management');
             }
             else if($role_id == 2){
-                return redirect() -> to('/');
+                return redirect() -> route('index');
             }
         }
         Session::flash('error', 'Email or Pass doesnt match');
