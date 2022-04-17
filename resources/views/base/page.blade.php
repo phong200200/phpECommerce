@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -49,8 +48,8 @@
                     <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                            <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt"
-                                data-title="English">English</option>
+                            <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt" data-title="English">
+                                English</option>
                             <option value='yu' data-image="img/flag-2.jpg" data-imagecss="flag yu"
                                 data-title="Bangladesh">German </option>
                         </select>
@@ -107,22 +106,26 @@
                                                 <tbody>
                                                     @foreach($newcart -> products as $item)
                                                     <tr>
-                                                        <td class="si-pic"><img src="{{ $item['productInfo'] -> linkimg }}" alt=""></td>
+                                                        <td class="si-pic"><img
+                                                                src="{{ $item['productInfo'] -> linkimg }}" alt=""></td>
                                                         <td class="si-text">
                                                             <div class="product-selected">
-                                                                <p>{{ $item['productInfo'] -> price }} x {{ $item['quantity']}}</p>
+                                                                <p>{{ $item['productInfo'] -> price }} x {{
+                                                                    $item['quantity']}}</p>
                                                                 <h6>{{ $item['productInfo'] -> name }}</h6>
                                                             </div>
                                                         </td>
                                                         <td class="si-close">
-                                                            <i class="ti-close" data-id="{{ $item['productInfo'] -> id }} "></i>
+                                                            <i class="ti-close"
+                                                                data-id="{{ $item['productInfo'] -> id }} "></i>
                                                         </td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
                                             <nav>
-                                                <h5>Total: <strong>{{number_format($newcart->totalPrice)}}đ</strong> </h5>
+                                                <h5>Total: <strong>{{number_format($newcart->totalPrice)}}đ</strong>
+                                                </h5>
                                             </nav>
                                             @endif
                                             <br />
@@ -131,7 +134,8 @@
                                     <div class="select-button">
                                         <a href="/shopping/cart/get" class="primary-btn view-card">VIEW CART</a>
                                         <a href="/shopping/order/get" class="primary-btn checkout-btn">CHECK OUT</a>
-                                        <a href="/shopping/cart/clear" onclick="ClearCart()" class="primary-btn view-card checkout-btn">Clear Cart</a>
+                                        <a href="/shopping/cart/clear" onclick="ClearCart()"
+                                            class="primary-btn view-card checkout-btn">Clear Cart</a>
                                     </div>
                                 </div>
                             </li>
@@ -147,16 +151,16 @@
                         <i class="ti-menu"></i>
                         <ul class="depart-hover">
                             @if($thisCate === null)
-                                <span>All Categories</span>
-                                @foreach($categories as $cate)
-                                    <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
-                                @endforeach
+                            <span>All Categories</span>
+                            @foreach($categories as $cate)
+                            <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
+                            @endforeach
                             @else
-                                <span>{{$thisCate -> name}}</span>
-                                <li><a href="/">All</a></li>
-                                @foreach($categories as $cate)
-                                    <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
-                                @endforeach
+                            <span>{{$thisCate -> name}}</span>
+                            <li><a href="/">All</a></li>
+                            @foreach($categories as $cate)
+                            <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
+                            @endforeach
                             @endif
                         </ul>
                     </div>
@@ -193,8 +197,46 @@
     <!-- Breadcrumb Section Begin -->
 
     <!-- Product Shop Section Begin -->
-    @yield('indexcontent')
-    <!-- Product Shop Section End -->
+    <section class="product-shop spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 order-1 order-lg-2">
+                    <div class="product-list">
+                        <div class="row">
+                            @foreach($products as $item)
+                            <div class="col-lg-4 col-sm-6">
+                                <div class="product-item">
+                                    <div class="pi-pic">
+                                        <img src="{{$item -> linkimg}}" alt="">
+                                        <div class="icon">
+                                            <i class="icon_heart_alt"></i>
+                                        </div>
+                                        <ul>
+                                            <li class="w-icon active"><a href="/product/details/{{$item -> id}}"><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="#">+ Add Cart</a></li>
+                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pi-text">
+                                        <div class="catagory-name">Shoes</div>
+                                        <a href="#">
+                                            <h5>{{$item -> name}}</h5>
+                                        </a>
+                                        <div class="product-price">
+                                            {{number_format($item -> price)}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>    <!-- Product Shop Section End -->
 
     <!-- Partner Logo Section Begin -->
     <div class="partner-logo">
@@ -229,7 +271,6 @@
         </div>
     </div>
     <!-- Partner Logo Section End -->
-
     <!-- Footer Section Begin -->
     <footer class="footer-section">
         <div class="container">
@@ -292,8 +333,11 @@
                     <div class="col-lg-12">
                         <div class="copyright-text">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.facebook.com/thuy.huynhvan" target="_blank">Huynh Van Thuy</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                            template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+                                href="https://www.facebook.com/thuy.huynhvan" target="_blank">Huynh Van Thuy</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="payment-pic">
                             <img src="/cart/img/payment-method.png" alt="">
@@ -315,7 +359,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="/cart/js/jquery.dd.min.js"></script>
     <script src="/cart/js/jquery.slicknav.js"></script>
     <script src="/cart/js/owl.carousel.min.js"></script>
-    <script src="/cart/js/main.js"></script>
+    <script src="/main.js"></script>
 </body>
 
 </html>

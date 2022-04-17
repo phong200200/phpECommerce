@@ -39,10 +39,26 @@ function ChangeCate(id, url){
     });
 }
 
-function DelecartItem(id){
+function AddCart(id){
     $.ajax({
         type: 'GET',
-        url: '/shopping/cart/delete/{id}/',
+        url: '/shopping/cart/add/' + id,
+        success: function(response){
+            $("#changeable-list-cart").empty();
+            $("#changeable-list-cart").html(response);
+            console.log('Success');
+            location.reload();
+        },
+        fail: function(){
+            console.log('failed');
+        }
+    });
+}
+
+function ClearCart(){
+    $.ajax({
+        type: 'GET',
+        url: '/shopping/cart/clear',
         success: function(response){
             $("#changeable-list-cart").empty();
             $("#changeable-list-cart").html(response);
@@ -56,3 +72,19 @@ function DelecartItem(id){
 }
 
 
+
+
+$("#changeable-list-cart").on("click", ".si-close i", function(){
+    $.ajax({
+        type: 'GET',
+        url: '/shopping/cart/delete/' + $(this).data("id"),
+        success: function(response){
+            $("#changeable-list-cart").empty();
+            $("#changeable-list-cart").html(response);
+            console.log('Success');
+            location.reload();
+        },fail: function(){
+            console.log('failed');
+        }
+    });
+});

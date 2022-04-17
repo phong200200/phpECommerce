@@ -1,6 +1,5 @@
 @if($newcart != null)
-<div id="changeable-list-cart">
-    <div class="select-items">
+    <div id="changeable-list-cart"  class="select-items">
         <table>
             <tbody>
                 @foreach($newcart -> products as $item)
@@ -20,9 +19,6 @@
             </tbody>
         </table>
     </div>
-</div>
 @else
-<div id="changeable-list-cart">
     <p>There's nothing in your cart :)</p>
-</div>
 @endif
