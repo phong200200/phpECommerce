@@ -8,7 +8,7 @@
         </div>
         <div class="form-group">
             <label>Categories</label>
-            <select name="parent_id" class="form-control">
+            <select name="parent_id" name="parent_id" class="form-control">
                 <option value="0">Category</option>
                 @foreach($categories as $item)
                     <option value="{{ $item -> id }}">{{ $item -> namecate}}</option>

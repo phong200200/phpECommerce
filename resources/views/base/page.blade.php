@@ -7,21 +7,22 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fashi | Template</title>
+    <title>{{$title}}</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
+
     <!-- Css Styles -->
-    <link rel="stylesheet" href="/cart/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/cart/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="/cart/css/themify-icons.css" type="text/css">
-    <link rel="stylesheet" href="/cart/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="/cart/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="/cart/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="/cart/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="/cart/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="/cart/css/style.css" type="text/css">
+    <link rel="stylesheet" href="cart/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="cart/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="cart/css/themify-icons.css" type="text/css">
+    <link rel="stylesheet" href="cart/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="cart/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="cart/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="cart/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="cart/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="cart/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -92,44 +93,11 @@
                             <li class="/cart-icon">
                                 <a href="#">
                                     <i class="icon_bag_alt"></i>
-                                    @if($newcart != null)
-                                    <span id="span-total-cart">{{ $newcart -> totalQuantity}}</span>
-                                    @else
-                                    <span>0</span>
-                                    @endif
+                                    
                                 </a>
                                 <div class="/cart-hover">
                                     <div id="changeable-list-cart">
-                                        <div class="select-items">
-                                            @if($newcart != null)
-                                            <table>
-                                                <tbody>
-                                                    @foreach($newcart -> products as $item)
-                                                    <tr>
-                                                        <td class="si-pic"><img
-                                                                src="{{ $item['productInfo'] -> linkimg }}" alt=""></td>
-                                                        <td class="si-text">
-                                                            <div class="product-selected">
-                                                                <p>{{ $item['productInfo'] -> price }} x {{
-                                                                    $item['quantity']}}</p>
-                                                                <h6>{{ $item['productInfo'] -> name }}</h6>
-                                                            </div>
-                                                        </td>
-                                                        <td class="si-close">
-                                                            <i class="ti-close"
-                                                                data-id="{{ $item['productInfo'] -> id }} "></i>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                            <nav>
-                                                <h5>Total: <strong>{{number_format($newcart->totalPrice)}}đ</strong>
-                                                </h5>
-                                            </nav>
-                                            @endif
-                                            <br />
-                                        </div>
+                                        
                                     </div>
                                     <div class="select-button">
                                         <a href="/shopping/cart/get" class="primary-btn view-card">VIEW CART</a>
@@ -150,18 +118,6 @@
                     <div class="depart-btn">
                         <i class="ti-menu"></i>
                         <ul class="depart-hover">
-                            @if($thisCate === null)
-                            <span>All Categories</span>
-                            @foreach($categories as $cate)
-                            <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
-                            @endforeach
-                            @else
-                            <span>{{$thisCate -> name}}</span>
-                            <li><a href="/">All</a></li>
-                            @foreach($categories as $cate)
-                            <li><a href="/cate/{{$cate -> id}}">{{$cate -> name}}</a></li>
-                            @endforeach
-                            @endif
                         </ul>
                     </div>
                 </div>
@@ -195,49 +151,7 @@
         </div>
     </div>
     <!-- Breadcrumb Section Begin -->
-
-    <!-- Product Shop Section Begin -->
-    <section class="product-shop spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 order-1 order-lg-2">
-                    <div class="product-list">
-                        <div class="row">
-                            @foreach($products as $item)
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="{{$item -> linkimg}}" alt="">
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href="/product/details/{{$item -> id}}"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="#">+ Add Cart</a></li>
-                                            <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">Shoes</div>
-                                        <a href="#">
-                                            <h5>{{$item -> name}}</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            {{number_format($item -> price)}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-    
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>    <!-- Product Shop Section End -->
-
+@yield('icontent')
     <!-- Partner Logo Section Begin -->
     <div class="partner-logo">
         <div class="container">
@@ -350,16 +264,16 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="/cart/js/jquery-3.3.1.min.js"></script>
-    <script src="/cart/js/bootstrap.min.js"></script>
-    <script src="/cart/js/jquery-ui.min.js"></script>
-    <script src="/cart/js/jquery.countdown.min.js"></script>
-    <script src="/cart/js/jquery.nice-select.min.js"></script>
-    <script src="/cart/js/jquery.zoom.min.js"></script>
-    <script src="/cart/js/jquery.dd.min.js"></script>
-    <script src="/cart/js/jquery.slicknav.js"></script>
-    <script src="/cart/js/owl.carousel.min.js"></script>
-    <script src="/main.js"></script>
+    <script src="cart/js/jquery-3.3.1.min.js"></script>
+    <script src="cart/js/bootstrap.min.js"></script>
+    <script src="cart/js/jquery-ui.min.js"></script>
+    <script src="cart/js/jquery.countdown.min.js"></script>
+    <script src="cart/js/jquery.nice-select.min.js"></script>
+    <script src="cart/js/jquery.zoom.min.js"></script>
+    <script src="cart/js/jquery.dd.min.js"></script>
+    <script src="cart/js/jquery.slicknav.js"></script>
+    <script src="cart/js/owl.carousel.min.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

@@ -17,4 +17,6 @@
         !!}
     </tbody>
 </table>
+<span class="nav" style="width: 350px; height: 100px; ">{{ $products->links() }}
+</span>
 @endsection

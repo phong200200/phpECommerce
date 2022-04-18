@@ -9,11 +9,11 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="admin/css/adminlte.min.css">
+    <link rel="stylesheet" href="/admin/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -158,13 +158,13 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="admin/plugins/jquery/jquery.min.js"></script>
+    <script src="/admin/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- overlayScrollbars -->
-    <script src="admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="admin/js/adminlte.min.js"></script>
+    <script src="/admin/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
 </body>
 

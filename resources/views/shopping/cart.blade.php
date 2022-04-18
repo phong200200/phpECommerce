@@ -8,7 +8,7 @@
                     <td class="si-text">
                         <div class="product-selected">
                             <p>{{ $item['productInfo'] -> price }} x {{ $item['quantity']}}</p>
-                            <h6>{{$item['productInfo'] -> name}}</h6>
+                            <h6>{{ $item['productInfo'] -> name}}</h6>
                         </div>
                     </td>
                     <td class="si-close">

@@ -27,7 +27,7 @@ class ProductService{
         return true;
     }
     public function putProduct(Request $request){
-        $product = $this -> getProductById($request -> input() -> id);
+        $product = $this -> getProductById($request -> input()['id']);
         if($product != null){
             return Product::updated($request -> input());
         }else{

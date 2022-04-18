@@ -43,6 +43,7 @@ Route::group(['prefix'=>'shopping', 'as'=>'shopping'],function(){
     Route::group(['prefix'=>'cart', 'as'=>'cart'], function(){
         Route::get('add/{id}', [CartController::class, 'addtocart']);
         Route::get('get', [CartController::class, 'index']);
+        Route::post('post', [CartController::class, 'postFromCheckout']) -> name('postcart')    ;
         Route::get('clear', [CartController::class, 'deleteSession']);
         Route::get('delete/{id}',[CartController::class, 'deleteCartItem']);
         Route::get('delelefromcheckout/{id}', [CartController::class, 'delelefromcheckout']);
@@ -63,6 +64,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('list', [ProductController::class, 'index']);
             Route::DELETE('destroy', [ProductController::class, 'delete']);
             Route::get('edit/{product}',[ProductController::class, 'edit']);
+            Route::post('edit/{product}', [ProductController::class, 'postedit']);
         });
 
         Route::group(['prefix'=>'categories','as'=>'category'], function(){

@@ -64,9 +64,22 @@ class ProductController extends Controller
         $_productId = $product -> getAttribute('id');
         return view('admin.product.edit', [
             'title'=> 'List Product',
-            'product'=> $this-> productservices -> getProductById($product -> getAttribute('id'))[0],
+            'product'=> $this-> productservices -> getProductById($product -> getAttribute('id')),
             'categories'=> $this -> categoryservices -> getAllCategories()
         ]);
     }
 
+    public function postedit(Request $request){
+        $result = $this-> productservices -> putProduct($request);
+        if($result == false){
+            return Response() -> json([
+                'error' => true,
+                'message' => $result
+            ]);
+        }
+        return Response() -> json([
+            'error' => false,
+            'message' => 'deleted'
+        ]);
+    }
 }

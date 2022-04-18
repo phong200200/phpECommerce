@@ -27,7 +27,7 @@ class CartController extends Controller
         ]);
     }
 
-    public function postTocart(Request $request){
+    public function postFromCheckout(Request $request){
         dd($request);
     }
     public function addtocart(Request $request, $id){

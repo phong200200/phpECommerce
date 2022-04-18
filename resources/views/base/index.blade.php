@@ -7,7 +7,7 @@
     <meta name="keywords" content="Fashi, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fashi | Template</title>
+    <title>{{$title}}</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -127,7 +127,7 @@
                                             <br />
                                         </div>
                                     <div class="select-button">
-                                        <a href="/shoppingcart/get" class="primary-btn view-card">VIEW CART</a>
+                                        <a href="/shopping/cart/get" class="primary-btn view-card">VIEW CART</a>
                                         <a href="/shopping/order/get" class="primary-btn checkout-btn">CHECK OUT</a>
                                         <a href="/shoppingcart/clear" onclick="ClearCart()"
                                             class="primary-btn view-card checkout-btn">Clear Cart</a>
@@ -167,7 +167,7 @@
                         <li><a href="#">Collection</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="#">Pages</a></li>
+                        <li><a href="user/login">Admin</a></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>
@@ -213,7 +213,7 @@
                                         </ul>
                                     </div>
                                     <div class="pi-text">
-                                        <div class="catagory-name">Shoes</div>
+                                        <div class="catagory-name">{{$item -> category_id}}</div>
                                         <a href="#">
                                             <h5>{{$item -> name}}</h5>
                                         </a>
@@ -230,6 +230,7 @@
             </div>
         </div>
         </div>
+        {{ $products->links() }}
     </section>    <!-- Product Shop Section End -->
 
     <!-- Partner Logo Section Begin -->
@@ -344,7 +345,7 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="cart/js/jquery-3.3.1.min.js"></script>
+    <script src="cart/js/jquery-3.3.1.min.js"></scri    pt>
     <script src="cart/js/bootstrap.min.js"></script>
     <script src="cart/js/jquery-ui.min.js"></script>
     <script src="cart/js/jquery.countdown.min.js"></script>

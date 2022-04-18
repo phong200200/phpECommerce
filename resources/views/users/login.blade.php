@@ -1,57 +1,65 @@
-@extends('base.page')
-@section('basecontent')
+@extends('admin.base.adminpage')
+@section('admincontent')
+<div class="container-fluid">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+            <!-- general form elements -->
 
-<body class="hold-transition login-page">
-  <div class="login-box">
-    <div class="login-logo">
-      <a href="#"><b>Admin</b></a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="card">
-      <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+            <!-- /.card -->
 
-        @include('admin.alert')
-        <form action="/admin/users/login/store" method="post">
-          <div class="input-group mb-3">
-            <input type="email" name="email" class="form-control" placeholder="Email">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
+            <!-- general form elements -->
+
+            <!-- Input addon -->
+            <div class="card card-info">
+                <div class="card-header">
+                    <h3 class="card-title">Horizontal Form</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                @include('admin.alert')
+                <form class="form-horizontal" action="/admin/users/login/store" method="post">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-10">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                                    <label class="form-check-label" for="exampleCheck2">Remember me</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-info">Sign in</button>
+                        <button type="submit" class="btn btn-default float-right">Cancel</button>
+                    </div>
+                    <!-- /.card-footer -->
+                    @csrf
+                </form>
             </div>
-          </div>
-          <div class="input-group mb-3">
-            <input type="password" name="password" class="form-control" placeholder="Password">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-8">
-              <div class="icheck-primary">
-                <input type="checkbox" id="remember" name="remember">
-                <label for="remember">
-                  Remember Me
-                </label>
-              </div>
-            </div>
-            <!-- /.col -->
-            <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-            </div>
-            <!-- /.col -->
-          </div>
-          @csrf
-        </form>
-        <!-- /.login-card-body -->
-        <div>
-          <a href=""></a>
+            <!-- /.card -->
+
         </div>
-      </div>
+        <!--/.col (left) -->
+        <!-- right column -->
 
+        <!-- /.card-body -->
+
+        <!-- /.card -->
     </div>
-</body>
+    <!--/.col (right) -->
+</div>
 @endsection
